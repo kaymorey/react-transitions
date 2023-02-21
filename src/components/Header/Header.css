@@ -1,0 +1,21 @@
+.site-header {
+  position: fixed;
+  z-index: 9;
+  top: 0; left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: #eee;
+}
+
+.site-header__link {
+  padding: 20px;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.site-header__link--active {
+  text-decoration: underline;
+}

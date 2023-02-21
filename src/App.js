@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { createRef } from 'react';
+import { createBrowserRouter, useOutlet } from 'react-router-dom';
+import Header from './components/Header/Header'
+import About from './pages/About/About';
+import Home from './pages/Home/Home';
+import './App.scss';
+
+const routes = [
+  { path: '/', name: 'Home', element: <Home />, nodeRef: createRef() },
+  { path: '/about', name: 'About', element: <About />, nodeRef: createRef() },
+]
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: routes.map((route) => ({
+      index: route.path === '/',
+      path: route.path === '/' ? undefined : route.path,
+      element: route.element,
+    })),
+  },
+])
 
 function App() {
+  const currentOutlet = useOutlet()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Header />
+      <main>
+        {currentOutlet}
+      </main>
+    </>
+  )
 }
 
-export default App;
+export default router;

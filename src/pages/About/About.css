@@ -1,0 +1,22 @@
+.about-hero {
+  padding: 200px 1rem 120px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  color: white;
+  background: #777;
+}
+
+.about-hero__img {
+  margin: 0 auto 50px;
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
+}
+
+.about-body {
+  padding: 5rem 1rem;
+  max-width: 684px;
+  width: 100%;
+  margin: 0 auto;
+}
